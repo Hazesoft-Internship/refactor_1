@@ -11,7 +11,7 @@ function calculateRectangleArea(float $length, float $width): void
     $area = $length * $width;
     echo "Area of rectangle is: " . $area . "<br>";
 }
-//laskjdkslajlkdsj
+//laskjdkslajlkdsjlsakdjaklsdjkl
 
 calculateCircleArea(5);
 calculateRectangleArea(5, 5);
