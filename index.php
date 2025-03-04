@@ -1,16 +1,51 @@
 <?php
 
-function calculateCircleArea(float $radius): void
+class Rectangle
 {
-    $area = pi() * $radius * $radius;
-    echo "Area of circle is: " . $area . "<br>";
+    protected $length;
+    protected $breadth;
+    public function __construct($l, $b)
+    {
+        $this->length = $l;
+        $this->breadth = $b;
+    }
+
+    public function calculateArea()
+    {
+        $area = (int) $this->length * (int) $this->breadth;
+        return $area;
+    }
 }
 
-function calculateRectangleArea(float $length, float $width): void
+
+
+// Inheritance 
+class Cuboid extends Rectangle
 {
-    $area = $length * $width;
-    echo "Area of rectangle is: " . $area . "<br>";
+    private $height;
+
+    public function __construct($l, $b, $h)
+    {
+        parent::__construct($l, $b);  // calls parent constructor
+        $this->height = $h;
+    }
+
+    public function calculateVolume()
+    {
+        $volume = (int) $this->length * (int) $this->breadth * (int) $this->height;
+        return $volume;
+    }
 }
 
-calculateCircleArea(5);
-calculateRectangleArea(5, 5);
+
+$rect1 = new Rectangle(2, 3);
+$area1 = $rect1->calculateArea();
+echo "" . "The area of the given rectangle is " . $area1 . "\n";
+
+
+$cuboid1 = new Cuboid(2, 3, 4);
+$volume = $cuboid1->calculateVolume();
+
+echo "The total volume is: " . $volume;
+
+?>
