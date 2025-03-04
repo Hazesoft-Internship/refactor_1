@@ -10,5 +10,4 @@ echo $areaC->area();
 $num2 = 30;
 $areaR = new AreaRectangle($num, $num2);
 echo $areaR->area();
-
 ?>
