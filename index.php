@@ -1,16 +1,38 @@
 <?php
-
-function calculateCircleArea(float $radius): void
-{
-    $area = pi() * $radius * $radius;
-    echo "Area of circle is: " . $area . "<br>";
+abstract class Shape {
+    abstract public function getArea();
 }
 
-function calculateRectangleArea(float $length, float $width): void
-{
-    $area = $length * $width;
-    echo "Area of rectangle is: " . $area . "<br>";
+class Circle extends Shape {
+    private $radius;
+    private $pi = 3.14;
+
+    public function __construct($radius) {
+        $this->radius = $radius;
+    }
+
+    public function getArea() {
+        return $this->pi * $this->radius * $this->radius;
+    }
 }
 
-calculateCircleArea(5);
-calculateRectangleArea(5, 5);
+class Rectangle extends Shape {
+    private $length;
+    private $breadth;
+
+    public function __construct($length, $breadth) {
+        $this->length = $length;
+        $this->breadth = $breadth;
+    }
+
+    public function getArea() {
+        return $this->length * $this->breadth;
+    }
+}
+
+$circle = new Circle(5);
+$rectangle = new Rectangle(3, 2);
+
+echo "Area of Circle is: " . $circle->getArea();
+echo "<br> Area of Rectangle is: " . $rectangle->getArea();
+?>
